@@ -1,0 +1,770 @@
+/*
+* @package      Style
+* @description  This package holds all common style declarations
+*               of the site
+*/
+
+@import "_variables.scss";
+@import "includes/_mixins.scss";
+
+@import "includes/_normalize.scss";
+@import "includes/tm-grid/_tm-grid.scss";
+
+
+/*
+* @section      Main Styles
+* @description  This section holds template default elements style declarations
+*/
+
+html {
+	/* font-size: 60px;
+
+	@media (min-width: $screen-sm-min) and (max-width: $screen-md-min - 1) {
+		font-size: 70px;
+	}
+
+	@media (min-width: $screen-md-min) and (max-width: $screen-lg-min - 1) {
+		font-size: 80px;
+	}
+
+	@media (min-width: $screen-lg-min) {
+		font-size: 100px;
+	} */
+
+
+	.old-ie {
+		display: none;
+	}
+
+	&.lt-ie11 {
+		.old-ie{
+			display: block;
+		}
+	}
+}
+
+body {
+	font-family: $default-font-family;
+	font-weight: $default-font-weight;
+	font-size: 16px;
+	line-height: 1.7;
+	-webkit-text-size-adjust: none;
+	color: $content-color;
+	background: $content-bg;
+
+	background-repeat: no-repeat;
+	background-position: top left;
+	background-attachment: scroll;
+	background-size: cover;
+
+	@media (min-width: $screen-sm-min) and (max-width: $screen-md-min - 1) {
+		font-size: 18px;
+	}
+
+	@media (min-width: $screen-md-min) {
+		font-size: $default-font-size;
+		line-height: $default-line-height;
+	}
+}
+
+
+/*
+* @subsection   Typography
+* @description  Describes default font settings for basic html elements and
+*               css classes
+*/
+
+h1, h2, h3, h4, h5, h6,
+.heading-1, .heading-2, .heading-3, .heading-4, .heading-5, .heading-6 {
+	display: block;
+	color: $grayscale-darken;
+	font-weight: 400;
+
+	a:hover {
+		color: $primary;
+	}
+}
+
+h1, .heading-1 {
+	font-size: 38px;
+	line-height: 1.33;
+
+	@media (min-width: $screen-sm-min) {
+		font-size: 62px;
+		line-height: 1.16;
+	}
+
+	> .heading-2{
+		margin-bottom: rem(33px);
+	}
+}
+
+h2, .heading-2 {
+	font-size: 28px;
+	line-height: 1.5;
+
+	mark{
+		padding: 5px 60px;
+	}
+
+	@media (min-width: $screen-sm-min) {
+		font-size: 30px;
+		line-height: 1.32;
+	}
+}
+
+h3, .heading-3 {
+	font-size: 30px;
+	line-height: 1.5;
+
+	@media (min-width: $screen-sm-min) {
+		font-size: 44px;
+		line-height: 1.37;
+	}
+}
+
+h4, .heading-4 {
+	font-size: 26px;
+
+	@media (min-width: $screen-sm-min) {
+		font-size: 36px;
+		line-height: 1.47;
+	}
+}
+
+h5, .heading-5 {
+	font-size: 22px;
+
+	@media (min-width: $screen-sm-min) {
+		font-size: 24px;
+		line-height: 1.66;
+	}
+}
+
+h6, .heading-6 {
+	font-size: 18px;
+
+	@media (min-width: $screen-sm-min) {
+		font-size: 20px;
+		line-height: 1.5;
+	}
+}
+
+p, .list, .contact-info {
+	font-weight: 300;
+
+	a:hover {
+		color: $primary;
+	}
+}
+
+mark {
+	display: inline-block;
+	padding: 5px;
+	color: #FFF;
+	background: $primary;
+}
+
+em {
+	color: $primary;
+}
+
+small, .small {
+	display: block;
+	font-size: 0.875em;
+	line-height: 1.643em;
+}
+
+.big {
+	font-size: 1.2em;
+}
+
+time {
+	&:before{
+		padding-right: 8px;
+	}
+}
+
+hr{
+	height: 1px;
+	width: 100%;
+	display: none;
+	padding: 0;
+	background: rgba($default, 0.04);
+}
+
+
+/*
+* @section      Main Layout
+* @description  This section holds class declarations for elements indent creation
+*/
+
+/*
+* @subsection   Offsets
+* @description  Describes vertical indentation between the elements
+*/
+
+* + .btn-group{
+	margin-top: 45px;
+}
+
+* + .box,
+* + .box-xs,
+* + .box-sm,
+* + .box-md,
+* + .box-lg {
+
+}
+
+* + .row{
+
+}
+
+* + .container {
+
+}
+
+* + .container-fluid{
+	margin-top: 66px;
+}
+
+* + .rd-mailform{
+
+}
+
+* + .offset {
+	&-1 {
+
+	}
+
+	&-2 {
+
+	}
+
+	&-3 {
+	}
+}
+
+* + time{
+
+}
+
+p + p{
+
+}
+
+.box, .box-xs, .box-sm, .box-md, .box-lg {
+	& + .box,
+	& + .box-xs,
+	& + .box-sm,
+	& + .box-md,
+	& + .box-lg {
+
+	}
+}
+
+.flow-offset-1 {
+	@include make-flow-offset(30px);
+}
+
+.container {
+	.rd-navbar-search-results{
+		.result-item + .result-item{
+			margin-top: 30px;
+		}
+	}
+}
+
+
+/*
+* @subsection   Postfix
+* @description  Describes instant right margin classes
+*/
+
+.postfix-1 {
+
+}
+
+
+/*
+* @subsection   Prefix
+* @description  Describes instant left margin classes
+*/
+
+.preffix-1 {
+
+}
+
+
+/*
+* @subsection   Insets
+* @description  Describes instant padding classes
+*/
+
+.inset {
+	&-1 {
+
+	}
+
+	&-2 {
+
+	}
+
+	&-3 {
+
+	}
+}
+
+
+/*
+* @subsection   Well
+* @description  Describes section inner indents
+*/
+
+.well-xs {
+	padding-top: 50px;
+	padding-bottom: 50px;
+}
+
+.well-sm {
+	padding-top: 80px;
+	padding-bottom: 80px;
+}
+
+.well-md {
+	padding-top: rem(100px);
+	padding-bottom: rem(100px);
+}
+
+.well-lg {
+	padding-top: rem(120px);
+	padding-bottom: rem(120px);
+}
+
+.well-xl {
+	padding-top: rem(150px);
+	padding-bottom: rem(150px);
+}
+
+/*
+* @section      Helpers
+* @description  This section holds various helper classes for
+*               conditional page styling
+*/
+
+.round {
+	border-radius: 50%;
+}
+
+/*
+* @subsection   Colors
+*/
+
+html body .page { // Increases specificity to use with background helpers
+	.text-primary {
+		color: $primary;
+	}
+}
+
+
+/*
+* @subsection   Backgrounds
+*/
+.bg-primary {
+	background: $primary;
+
+	&, #{headings()}{
+		color: $white;
+	}
+
+	.icon-primary{
+		color: $white;
+		border-color: $white;
+		background: transparent;
+		box-shadow: $box-shadow-ambient;
+	}
+	
+	p, .list, .terms-list{
+		a:hover{
+			color: $white;
+			text-decoration: underline;
+		}
+	}
+}
+
+/*
+ * @subsection   Box
+ */
+@import "includes/tm-box/_boxes.scss";
+
+.box {
+
+}
+
+/*
+* @subsection   Quote
+*/
+.quote{
+
+}
+
+/*
+* @subsection   Pricing Box
+*/
+
+.pricing-box{
+
+}
+
+/*
+* @subsection   Breadcrumbs
+*/
+
+.breadcrumbs{
+
+}
+
+/*
+* @subsection   Post
+*/
+
+.post{
+
+}
+
+/*
+* @subsection   List
+*/
+
+.list{
+	li + li{
+		margin-top: 10px;
+	}
+}
+
+/*
+* @subsection   Inline List
+*/
+
+.inline-list {
+	@include transform(translateY(-30px));
+	margin-bottom: -30px;
+	margin-left: -30px;
+
+
+	> li {
+		display: inline-block;
+		margin-top: 30px;
+		margin-left: 30px;
+	}
+}
+
+
+/*
+* @subsection   Marked List
+*/
+
+.marked-list {
+	text-align: left;
+
+	> li {
+		position: relative;
+		padding-left: 30px;
+
+		&:before {
+			content: "\f105";
+			position: absolute;
+			left: 0;
+			top: 0;
+			font-weight: 400;
+			font-size: 1em;
+			font-family: $fa;
+			color: $primary;
+		}
+
+		& + li {
+			margin-top: 10px;
+		}
+
+		> a:hover {
+			color: $primary;
+		}
+	}
+}
+
+
+/*
+* @subsection   Index List
+*/
+
+.index-list {
+	counter-reset: li;
+
+	> li {
+		> .index-list__counter{
+			&:before {
+				content: counter(li, decimal-leading-zero) '.';
+				counter-increment: li;
+			}
+		}
+	}
+
+	// Sets offset between list rows
+	@include make-flow-offset(30px);
+}
+
+
+/*
+* @subsection   Ordered List
+*/
+
+.ordered-list {
+	> li {
+		padding-left: 20px;
+		list-style-type: decimal;
+	}
+}
+
+
+/*
+* @subsection   Terms  List
+*/
+
+.terms-list {
+	> dt + dd {
+		margin-top: 10px;
+	}
+
+	> dd + dt {
+		margin-top: 20px;
+	}
+}
+
+
+/*
+* @subsection   Contact Info
+*/
+
+.contact-info {
+	p {
+	}
+
+	dl {
+		dt, dd {
+			display: inline-block;
+		}
+
+		dt:after {
+			content: ':';
+		}
+
+		dt {
+			min-width: 80px;
+		}
+	}
+}
+
+
+/*
+* @subsection   Counter
+*/
+
+.counter{
+
+}
+
+
+/*
+* @subsection   Thumb
+*/
+
+.thumb {
+	position: relative;
+	display: block;
+	overflow: hidden;
+
+	> img {
+		width: 100%;
+	}
+
+	&__overlay {
+		position: absolute;
+		left: 0;
+		top: 0;
+		bottom: 0;
+		right: 0;
+		background: rgba($grayscale-darken, .5);
+		opacity: 0;
+		text-align: center;
+		transition: .3s all ease;
+
+		> *{
+			vertical-align: middle;
+			@include transform(translateY(30px));
+			transition: .3s all ease;
+		}
+
+		&:before{
+			content: '';
+			display: inline-block;
+			height: 50%;
+		}
+	}
+
+	&:hover {
+		.thumb__overlay {
+			opacity: 1;
+
+			> *{
+				@include transform(translateY(0));
+			}
+		}
+	}
+}
+
+
+/*
+* @subsection   Link
+*/
+
+.link {
+	display: inline-block;
+}
+
+
+/*
+* @subsection   Video
+*/
+
+.video {
+	position: relative;
+	padding-bottom: percentage(340 / 570); // percentage( Height / Width ) on PSD
+
+	> iframe {
+		position: absolute;
+		left: 0;
+		top: 0;
+		width: 100%;
+		height: 100%;
+	}
+}
+
+
+/*
+* @section      Page Header
+* @description  This section holds specific style redeclarations for some
+*               of common elements in page header
+*/
+
+.site-header {
+	padding: 30px 0;
+	background: #322a37;
+	clear: #fff;
+	margin-bottom: 50px;
+
+
+	@media (min-width: $screen-sm-min) {
+
+		.site-branding {
+			display: table-cell;
+			vertical-align: middle;
+			min-width: 300px;
+			text-align: left;
+		}
+
+		.main-navigation {
+			display: table-cell;
+			vertical-align: middle;
+			width: 100%;
+			text-align: right;
+			float: none;
+			clear: none;
+
+			li {
+				float: none;
+				display: inline-block;
+			}
+		}
+	}
+
+}
+
+
+/*
+* @section      Page Content
+* @description  This section holds specific style redeclarations for some
+*               of common elements in page content
+*/
+
+.page-content {
+	.desktop & {
+		min-height: 100vh;
+	}
+}
+
+/*
+* @section      Page Footer
+* @description  This section holds specific style redeclarations for some
+*               of common elements in page footer
+*/
+
+.page-footer {
+
+}
+
+.copyright {
+}
+
+
+
+
+.site-main article, aside {
+	background: #fff;
+	padding: 30px;
+}
+
+
+.site-main article {
+	border-bottom: 6px solid $grayscale-darken;
+	.tags-links {
+		a {
+			padding: 10px;
+			border: 3px solid $primary;
+			background: #000;
+		}
+	}
+}
+
+/*
+* @section      Pagination under posts
+*/
+.nav-links {
+	border-bottom: 6px solid $grayscale-darken;
+
+	.page-numbers {
+		min-width: 58px;
+		height: 56px;
+		line-height: 56px;
+		display: inline-block;
+		text-align: center;
+		font-size: 18px;
+		background: #524c56;
+		padding: 0 5px;
+		vertical-align: middle;
+		color: #fff;
+
+		&.current, &.prev, &.next {
+			background: $grayscale-darken;
+		}
+
+
+		&:hover {
+			background: #000;
+		}
+
+		&.dots {
+			min-width: 0;
+			background: none;
+		}
+	}
+}
