@@ -21,20 +21,26 @@
 		
 
 		<?php
-			if ( is_single() ) {
-				the_title( '<h1 class="entry-title">', '</h1>' );
-			} else {
-				the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
-			}
+			echo '<div class="article-title-main">';
+				if ( is_single() ) {
+					the_title( '<h1 class="entry-title">', '</h1>' );
+				} else {
+					the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
+				}
 
-			tm_vals_blog_author_post();  /*custom function*/
+				tm_vals_blog_author_post();  /*custom function*/
+				echo '</div>';
+
 
 		if ( 'post' === get_post_type() ) : ?>
+		
 		<div class="entry-meta">
 			<?php tm_vals_blog_posted_on(); ?>
 		</div><!-- .entry-meta -->
+
 		<?php
 		endif; ?>
+
 	</header><!-- .entry-header -->
 
 	<div class="entry-content">

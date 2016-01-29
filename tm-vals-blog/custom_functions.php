@@ -1,7 +1,7 @@
 <?php
 
 function enqueue_styles_scripts() { 
-  wp_enqueue_style('gfonts', '//fonts.googleapis.com/css?family=Roboto:300,400,700,900');
+  wp_enqueue_style('gfonts', '//fonts.googleapis.com/css?family=Roboto:300,400,500,700,900');
   wp_enqueue_style('font-awesome', '//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css');
 
   // Remember to comment out enqueueing of navigation.js in functions.php
@@ -56,23 +56,20 @@ register_sidebar(
 );
 
 
-// function to show time
+// function to show time in article
 function tm_vals_blog_time_created() {
     echo '<time class="entry-date published" datetime="' . get_the_time('m-d-Y') .'"><span>' . get_the_time('D') . 
-         '</span><span>' . get_the_time('M') . '</span><span>' . get_the_time('Y') . '</span></time>';
+         '<br>' . get_the_time('M') . '<br>' . get_the_time('Y') . '</span></time>';
 }
 
-// function to show time
+// function to show time in article
 function tm_vals_blog_author_post() {
-    
-
-
   $byline = sprintf(
     esc_html_x( 'Writen by %s', 'post author', 'tm-vals-blog' ),
     '<span class="author vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( get_the_author() ) . '</a></span>'
   );
 
   echo '<span class="byline"> ' . $byline . '</span>'; // WPCS: XSS OK.
-
-
 }
+
+
