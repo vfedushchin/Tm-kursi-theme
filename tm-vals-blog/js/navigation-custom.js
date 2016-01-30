@@ -1,5 +1,9 @@
 jQuery(document).ready(function($){
 
+
+  // $('.main-navigation ul').superfish();
+  
+
   // var menu_ul = '.main-navigation .menu';
 
   var menu_ul = $('.main-navigation').find('ul').first();
@@ -13,10 +17,8 @@ jQuery(document).ready(function($){
 
     $('.page_item_has_children').children('a').hover(function() {
       /* code for mouseover */
-      console.log(111);
     }, function() {
      /* code for mouseout */
-     console.log(222);
     });
 
 

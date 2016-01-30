@@ -668,6 +668,17 @@ html body .page { // Increases specificity to use with background helpers
 			li {
 				float: none;
 				display: inline-block;
+
+				li {
+					display: block;
+					text-align: left;
+
+					a {
+						line-height: 24px;
+    				padding: 5px 15px;
+					}
+					
+				}
 			}
 		}
 	}
@@ -703,13 +714,18 @@ html body .page { // Increases specificity to use with background helpers
 
 
 
-.site-main article, aside {
+.site-main article {
 	background: #fff;
 	padding: 0 30px 0;
 }
 
+ aside {
+ 	background: #fff;
+ 	padding: 30px 30px;
+ }
 
-.widget-title {
+
+.widget-title, .widgettitle {
 	position: relative;
 	font-size: 22px;
 	text-transform: uppercase;
@@ -726,6 +742,31 @@ html body .page { // Increases specificity to use with background helpers
 		bottom: 0;
 		background: $primary;
 	}
+}
+
+.tagcloud {
+			display: table-cell;
+			vertical-align: middle;
+			width: 100%;
+			text-align: right;
+			a {
+				padding: 5px 15px;
+				font-size: 12px;
+				text-transform: uppercase;
+				border: 3px solid $primary;
+				display: inline-block;
+				color: #fff;
+				margin-bottom: 8px;
+
+				&:hover {
+					color: #fff;
+					background: #000;
+				}
+			}
+		}
+
+.site-footer .widgettitle {
+	color: #fff;
 }
 
 aside {

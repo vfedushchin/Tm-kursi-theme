@@ -589,7 +589,7 @@ a:hover, a:active {
     /* expanded nav child menu */
   }
   .main-navigation ul li a {
-    padding: 0.809rem;
+    padding: 1.618rem;
   }
   .main-navigation ul li ul {
     position: absolute;
@@ -3274,14 +3274,6 @@ html body .page .text-primary {
     float: none;
     display: inline-block;
   }
-  .site-header .main-navigation li li {
-    display: block;
-    text-align: left;
-  }
-  .site-header .main-navigation li li a {
-    line-height: 24px;
-    padding: 5px 15px;
-  }
 }
 
 /*
@@ -3298,24 +3290,19 @@ html body .page .text-primary {
 * @description  This section holds specific style redeclarations for some
 *               of common elements in page footer
 */
-.site-main article {
+.site-main article, aside {
   background: #fff;
   padding: 0 30px 0;
 }
 
-aside {
-  background: #fff;
-  padding: 30px 30px;
-}
-
-.widget-title, .widgettitle {
+.widget-title {
   position: relative;
   font-size: 22px;
   text-transform: uppercase;
   padding-bottom: 7px;
   margin-bottom: 5px;
 }
-.widget-title:after, .widgettitle:after {
+.widget-title:after {
   position: absolute;
   display: inline-block;
   content: '';
@@ -3324,30 +3311,6 @@ aside {
   left: 0;
   bottom: 0;
   background: #e6a665;
-}
-
-.tagcloud {
-  display: table-cell;
-  vertical-align: middle;
-  width: 100%;
-  text-align: right;
-}
-.tagcloud a {
-  padding: 5px 15px;
-  font-size: 12px;
-  text-transform: uppercase;
-  border: 3px solid #e6a665;
-  display: inline-block;
-  color: #fff;
-  margin-bottom: 8px;
-}
-.tagcloud a:hover {
-  color: #fff;
-  background: #000;
-}
-
-.site-footer .widgettitle {
-  color: #fff;
 }
 
 aside {

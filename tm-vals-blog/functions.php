@@ -107,8 +107,30 @@ function tm_vals_blog_widgets_init() {
 		'before_title'  => '<h2 class="widget-title">',
 		'after_title'   => '</h2>',
 	) );
+
+	// Register custom widget locations
+	register_sidebar(
+	  array(
+	    'name' => __("footer", "tm-vals-blog"),
+	    'id' => 'aboveheader',
+	    'description' => 'Footer text',
+	    'before_widget' => "<div class='in-footer'>",
+	    'after_widget' => "</div>"
+	  )
+	);
+
+	register_sidebar(
+	  array(
+	    'name' => __("footer-2", "tm-vals-blog"),
+	    'id' => 'abovecontent',
+	    'description' => 'Footer tags',
+	    'before_widget' => "<div class='in-footer2'>",
+	    'after_widget' => "</div>"
+	  )
+	);
+
 }
-add_action( 'widgets_init', 'tm_vals_blog_widgets_init' );
+add_action( 'widgets_init', 'tm_vals_blog_widgets_init');
 
 /**
  * Enqueue scripts and styles.

@@ -6,6 +6,7 @@ function enqueue_styles_scripts() {
 
   // Remember to comment out enqueueing of navigation.js in functions.php
   // Note jquery listed as dependancy which prompts WP to load it
+  wp_enqueue_script( 'superfish_js', get_template_directory_uri() . '/js/jquery.superfish.js', array('jquery') );
   wp_enqueue_script( 'val-blog-navigation', get_template_directory_uri() . '/js/navigation-custom.js', array('jquery') );
 
     
@@ -34,26 +35,9 @@ add_action( 'the_content_more_link', 'add_continue_wrapper', 10, 2 );
 
 
 
-// Register custom widget locations
-register_sidebar(
-  array(
-    'name' => __("Above Header", "testtheme"),
-    'id' => 'aboveheader',
-    'description' => 'Above header and menu, right aligned, use for social icons',
-    'before_widget' => "<div class='aboveheader'>",
-    'after_widget' => "</div>"
-  )
-);
 
-register_sidebar(
-  array(
-    'name' => __("Above Content Area", "testtheme"),
-    'id' => 'abovecontent',
-    'description' => 'Front page only, use for sliders',
-    'before_widget' => "<div class='abovecontent'>",
-    'after_widget' => "</div>"
-  )
-);
+
+
 
 
 // function to show time in article
@@ -73,3 +57,91 @@ function tm_vals_blog_author_post() {
 }
 
 
+
+/* ------------------------------------- */
+/* Start shows select with all awailable shortcodes in admin panel */
+/* ------------------------------------- */
+add_action('media_buttons','add_sc_select',11);
+function add_sc_select(){
+    global $shortcode_tags;
+     /* ------------------------------------- */
+     /* enter names of shortcode to exclude bellow */
+     /* ------------------------------------- */
+    $exclude = array("wp_caption", "embed");
+    echo '&nbsp;<select id="sc_select"><option>Shortcode</option>';
+    foreach ($shortcode_tags as $key => $val){
+        if(!in_array($key,$exclude)){
+            $shortcodes_list .= '<option value="['.$key.'][/'.$key.']">'.$key.'</option>';
+            }
+        }
+     echo $shortcodes_list;
+     echo '</select>';
+}
+add_action('admin_head', 'button_js');
+function button_js() {
+    echo '<script type="text/javascript">
+    jQuery(document).ready(function(){
+       jQuery("#sc_select").change(function() {
+              send_to_editor(jQuery("#sc_select :selected").val());
+                  return false;
+        });
+    });
+    </script>';
+}
+/* ------------------------------------- */
+/* end shows select with all awailable shortcodes in admin panel */
+/* ------------------------------------- */
+
+
+
+/* ------------------------------------- */
+/* start gallery slider */
+/* ------------------------------------- */
+function gallery_slider($output, $attr) {
+  $ids = explode(',', $attr['ids']);
+
+
+  $images = get_posts(array(
+    'include' => $ids,
+    'post_status' => 'inherit',
+    'post_type' => 'attachment',
+    'post_mime_type' => 'image'
+  ));
+
+  // u - var_dump($images);
+
+  if ($images) {
+    $output = gallery_slider_template($images);
+    return $output;
+  }
+}
+add_filter('post_gallery', 'gallery_slider', 10, 2);
+
+function gallery_slider_template($images) {
+  ob_start();
+  include 'gallery-slider.php';
+  $output = ob_get_clean();
+  return $output;
+}
+/* ------------------------------------- */
+/* end gallery slider */
+/* ------------------------------------- */
+
+
+
+ 
+//Register tag cloud filter callback
+add_filter('widget_tag_cloud_args', 'tag_widget_limit');
+ 
+//Limit number of tags inside widget
+function tag_widget_limit($args){
+ 
+ //Check if taxonomy option inside widget is set to tags
+ if(isset($args['taxonomy']) && $args['taxonomy'] == 'post_tag'){
+  $args['number'] = 7; //Limit number of tags
+  $args['largest'] = 12; //Limit number of tags
+  $args['smallest'] = 12; //Limit number of tags
+ }
+ 
+ return $args;
+}

@@ -24,11 +24,7 @@
 <div id="page" class="site">
 	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'tm-vals-blog' ); ?></a>
 
-	<?php
-		if ( is_dynamic_sidebar('aboveheader') ) {
-			dynamic_sidebar('aboveheader');
-		}
-		?><!-- Widget location to hold social icons -->
+
 
 	<header id="masthead" class="site-header" role="banner">
 		<div class="container">
