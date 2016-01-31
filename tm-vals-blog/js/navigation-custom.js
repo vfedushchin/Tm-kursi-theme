@@ -22,8 +22,28 @@ jQuery(document).ready(function($){
     });
 
 
+  function close_all_submenu(e) {
+    // get the child of the clicked menu switch
+    var child_menu = $(e).parent().parent().children('ul');
+
+    // get the parent link of the clicked menu switch
+    var parent_link = $(e).parent();
+
+    // if it's open, close it
+
+      // remove any "active" class from parent item
+      $(parent_link).removeClass('active');
+      // hide child menu
+      $(child_menu).removeClass('childopen');
+      // set this open menu switch to +
+      $(e).html('+');
+  }
+
+
   $('.mytheme_menu_switch').click(function(event){
 
+    // close all submenus except pressed
+    close_all_submenu($('.mytheme_menu_switch').not(this));
 
     event.preventDefault();
 

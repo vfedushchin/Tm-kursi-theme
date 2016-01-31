@@ -138,7 +138,7 @@ function tag_widget_limit($args){
  
  //Check if taxonomy option inside widget is set to tags
  if(isset($args['taxonomy']) && $args['taxonomy'] == 'post_tag'){
-  $args['number'] = 7; //Limit number of tags
+  $args['number'] = 5; //Limit number of tags
   $args['largest'] = 12; //Limit number of tags
   $args['smallest'] = 12; //Limit number of tags
  }

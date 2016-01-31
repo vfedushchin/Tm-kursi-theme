@@ -64,7 +64,11 @@ function tm_vals_blog_entry_footer() {
 			printf( '<span class="cat-links">' . esc_html__( 'Posted in %1$s', 'tm-vals-blog' ) . '</span>', $categories_list ); // WPCS: XSS OK.
 		}*/
 
-		printf( '<a href="' . esc_url( get_permalink() ) . '" class="article-more">' . __('More', 'tm-vals-blog') . '</a>');
+
+		if(!is_single()) {
+			printf( '<a href="' . esc_url( get_permalink() ) . '" class="article-more">' . __('More', 'tm-vals-blog') . '</a>');
+		}
+		
 
 		/* translators: used between list items, there is a space after the comma */
 		$tags_list = get_the_tag_list( '', esc_html__( ' ', 'tm-vals-blog' ) );

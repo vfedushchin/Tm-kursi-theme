@@ -1,3 +1,5 @@
+@import "custom/_variables.scss";
+
 .main-navigation {
 	h1 {
 	  display: none !important;
@@ -7,7 +9,7 @@
 		padding: 0;
 		list-style: none;
 		position: relative;
-		white-space: nowrap;
+		
 		li {
 			cursor: pointer;
 			list-style: none;
@@ -41,7 +43,7 @@
 }
 
 /* expanded nav menu */
-@media (min-width: total_site_width()) {
+@media (min-width: $screen-sm-min) {
 
 	.navicon {
 		display: none;
@@ -52,13 +54,13 @@
 	}
 
 	.main-navigation ul {
-		float: right;
+
 		display: inline-table;
 		// padding: 0 1em;
 		li {
-			float: left;
+
 			a {
-				padding: $phi * 0.5rem;
+				padding: $phi * 0.3rem;
 				
 			}
 			/* expanded nav child menu */
@@ -67,6 +69,8 @@
 				z-index: 9999;
 				top: 100%;
 				left: 0;
+				width: 100%;
+				min-width: 120px;
 				@include child_menu_expanded();
 				li {
 					float: none;
@@ -83,10 +87,12 @@
 
 }
 
+
 /* collapsed nav menu */
-@media (max-width: total_site_width()) {
+@media (max-width: $screen-sm-min) {
 
 	.navicon {
+		display: block;
 		float: right;
 		font-size: 1.65rem;
 		line-height: 2.8125rem;
@@ -94,6 +100,11 @@
 		width: 54*$px;
 		margin: 15*$px;
 		cursor: pointer;
+
+
+		&:hover {
+			color: $primary;
+		}
 	}
 
 	.main-navigation ul {
@@ -101,46 +112,27 @@
 		display: none;
 		&.show {
 			display: block;
+			float: left;
 		}
 		li {
+			display: block;
 			a {
 				width: 100%;
-				line-height: 4.5rem;
-				padding: 0 2.1875rem;
-				@include compact_menu_item();
+				line-height: 2.5rem;
+				padding: 0 1.1875rem;
 			}
+			@include child_menu_item();
 		}
 		/* collapsed nav child menu */
 		ul {
 			position: relative;
 			left: 0;
-			@include child_menu_compact();
+			background: darken($grayscale-darken,2%);
 			li a {
-				@include child_menu_compact_item();
+				
 			}
 		}
 	}
 
 }
 
-.site-main .comment-navigation,
-.site-main .posts-navigation,
-.site-main .post-navigation {
-	margin: 0 0 1.5em;
-	overflow: hidden;
-}
-
-.comment-navigation .nav-previous,
-.posts-navigation .nav-previous,
-.post-navigation .nav-previous {
-	float: left;
-	width: 50%;
-}
-
-.comment-navigation .nav-next,
-.posts-navigation .nav-next,
-.post-navigation .nav-next {
-	float: right;
-	text-align: right;
-	width: 50%;
-}
