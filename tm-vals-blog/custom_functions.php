@@ -8,6 +8,10 @@ function enqueue_styles_scripts() {
   // Note jquery listed as dependancy which prompts WP to load it
   wp_enqueue_script( 'superfish_js', get_template_directory_uri() . '/js/jquery.superfish.js', array('jquery') );
   wp_enqueue_script( 'val-blog-navigation', get_template_directory_uri() . '/js/navigation-custom.js', array('jquery') );
+  wp_enqueue_script( 'owl-carousel', get_template_directory_uri() . '/js/owl-carousel.js', array('jquery') );
+
+  // for development shows screenshort of original site
+  wp_enqueue_script( 'screen-preview', get_template_directory_uri() . '/js/screen-preview.js', array('jquery') );
 
     
   wp_enqueue_script( 'modernizr', get_template_directory_uri() . '/js/modernizr.js' );
@@ -141,6 +145,7 @@ function tag_widget_limit($args){
   $args['number'] = 5; //Limit number of tags
   $args['largest'] = 12; //Limit number of tags
   $args['smallest'] = 12; //Limit number of tags
+  $args['unit'] = 'px'; //Limit number of tags
  }
  
  return $args;

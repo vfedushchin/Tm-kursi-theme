@@ -11,6 +11,8 @@
 @import "includes/tm-grid/_tm-grid.scss";
 
 
+@import "_screen_preview.scss";
+
 /*
 * @section      Main Styles
 * @description  This section holds template default elements style declarations
@@ -637,6 +639,19 @@ html body .page { // Increases specificity to use with background helpers
 }
 
 
+
+
+
+/*
+* @section      Extensions
+* @description  This section holds some of style declarations for necessary
+*               scripts
+*/
+
+@import "extensions/_owl-carousel.scss";
+
+
+
 /*
 * @section      Page Header
 * @description  This section holds specific style redeclarations for some
@@ -723,7 +738,7 @@ html body .page { // Increases specificity to use with background helpers
 
  aside {
  	background: #fff;
- 	padding: 30px 40px;
+ 	padding: 42px 40px;
  }
 
  .comments-area {
@@ -740,7 +755,7 @@ html body .page { // Increases specificity to use with background helpers
 	font-size: 22px;
 	text-transform: uppercase;
 	padding-bottom: 7px;
-	margin-bottom: 25px;
+	margin-bottom: 21px;
 
 	&:after {
 		position: absolute;
@@ -780,7 +795,8 @@ html body .page { // Increases specificity to use with background helpers
 }
 
 aside {
-	padding-top: 30px;
+	padding-top: 42px;
+	font-weight: 400;
 	ul {
 		li {
 
@@ -788,6 +804,10 @@ aside {
 				font-family: "FontAwesome";
 				content: "\f101";
 				margin-right: 0.5em;
+			}
+
+			& + li {
+				margin-top: 5px;
 			}
 
 		}
@@ -813,13 +833,15 @@ aside {
 		border-bottom: 1px solid #e4e4e4;
 
 		time {
-			padding: 10px;
+			padding: 40px 0 30px;
 			border-right: 1px solid #e4e4e4;
 			display: table-cell;
 			vertical-align: middle;
 			min-width: 73px;
 			text-transform: uppercase;
 			font-weight: 500;
+			line-height: 20px;
+			color: $grayscale-darken;
 			span {
 				display: block;
 			}
@@ -853,6 +875,7 @@ aside {
 		overflow: hidden;
 		padding: 20px 0;
 		.article-more {
+			font-weight: 500;
 			display: table-cell;
 			vertical-align: middle;
 			min-width: 75px;
@@ -939,20 +962,26 @@ aside {
 
 .site-footer {
 	margin-top: 56px;
-	padding: 20px 0;
+	padding: 57px 0;
 	color: #fff;
 	background: $grayscale-darken;
+
+	.site-info {
+		text-transform: uppercase;
+		font-size: 14px;
+	}
 }
 
 .widget_search {
 	width: 100%;
 	position: relative;
+	margin: 0 0 4.3em;
 
 	label input{
 		width: 100%;
 		border-radius: 0;
 		padding: 10px 20px 10px;
-		padding-right: 40px;
+		padding-right: 47px;
 		line-height: 35px;
 		box-sizing: border-box;
 		background: #e9e9e9;
@@ -974,7 +1003,7 @@ aside {
 		font-size: 18px;
 		line-height: 55px;
 		position: absolute;
-		right: 15px;
+		right: 23px;
 		top: 0;
 		color: $grayscale-darken;
 
