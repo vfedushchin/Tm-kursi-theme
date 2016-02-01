@@ -1,6 +1,7 @@
 @import "custom/_variables.scss";
 
 .main-navigation {
+	position: relative;
 	h1 {
 	  display: none !important;
 	}
@@ -9,6 +10,9 @@
 		padding: 0;
 		list-style: none;
 		position: relative;
+		text-transform: uppercase;
+		font-weight: 400;
+		color: #fff;
 		
 		li {
 			cursor: pointer;
@@ -18,6 +22,20 @@
 			padding: 0;
 			a {
 				display: inline-block;
+
+				&:visited {
+					color: #fff;
+				}
+
+				&:hover {
+					color: $primary;
+				}
+			}
+
+			&.current_page_item {
+				a, a:visited {
+					color: $primary;
+				}
 			}
 			/* switch symbol for showing child */
 			span {
@@ -40,6 +58,24 @@
 			}
 		}
 	}
+
+
+		.navicon {
+			position: absolute;
+			top: -60px;
+			right: 0;
+			font-size: 22px;
+			line-height: 40px;
+			text-align: center;
+			width: 40px;
+			height: 40px;
+			cursor: pointer;
+			transition: .4s all ease;
+
+			&:hover {
+				color: $primary;
+			}
+		}
 }
 
 /* expanded nav menu */
@@ -57,10 +93,12 @@
 
 		display: inline-table;
 		// padding: 0 1em;
+		&:first-child > li + li {
+			margin-left: 20px;
+		}
 		li {
-
 			a {
-				padding: $phi * 0.3rem;
+				padding: 0;
 				
 			}
 			/* expanded nav child menu */
@@ -68,18 +106,28 @@
 				position: absolute;
 				z-index: 9999;
 				top: 100%;
+				margin-top: 10px;
 				left: 0;
 				width: 100%;
 				min-width: 120px;
-				@include child_menu_expanded();
+				background-color: $grayscale-darken;
+				border: 1px solid rgba(0, 0, 0, 0.1);
+				box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
 				li {
 					float: none;
 					a {
+						font-size: 12px;
 						width: 100%;
 						line-height: 4.5rem;                                  
 						padding: 0 2.1875rem;
 					}
-					@include child_menu_item();
+					a, a:link, a:visited {
+						border: 0;
+						border-top: 1px solid rgba(#fff,0.3);
+					}
+					a:hover {
+						background-color: lighten($grayscale-darken, 5%);
+					}
 				}
 			}
 		}
@@ -89,22 +137,10 @@
 
 
 /* collapsed nav menu */
-@media (max-width: $screen-sm-min) {
+@media (max-width: $screen-sm-min - 1) {
 
-	.navicon {
-		display: block;
-		float: right;
-		font-size: 1.65rem;
-		line-height: 2.8125rem;
-		text-align: center;
-		width: 54*$px;
-		margin: 15*$px;
-		cursor: pointer;
-
-
-		&:hover {
-			color: $primary;
-		}
+	.main-navigation {
+		margin-top: 20px;
 	}
 
 	.main-navigation ul {
@@ -112,16 +148,15 @@
 		display: none;
 		&.show {
 			display: block;
-			float: left;
 		}
 		li {
 			display: block;
 			a {
 				width: 100%;
-				line-height: 2.5rem;
-				padding: 0 1.1875rem;
+				line-height: 24px;
+				padding: 3px 10px;
 			}
-			@include child_menu_item();
+			border-top: 1px solid rgba(#fff,0.1);
 		}
 		/* collapsed nav child menu */
 		ul {
@@ -129,7 +164,11 @@
 			left: 0;
 			background: darken($grayscale-darken,2%);
 			li a {
-				
+				padding-left: 25px;
+
+				a{
+					padding-left: 35px;
+				}
 			}
 		}
 	}

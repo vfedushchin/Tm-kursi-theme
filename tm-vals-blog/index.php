@@ -45,8 +45,8 @@ get_header(); ?>
 
 					// Previous/next page navigation.
 					the_posts_pagination( array(
-						'prev_text'          => __( 'Previous page', 'tm-vals-blog' ),
-						'next_text'          => __( 'Next page', 'tm-vals-blog' ),
+						'prev_text'          => __( '<', 'tm-vals-blog' ),
+						'next_text'          => __( '>', 'tm-vals-blog' ),
 						'before_page_number' => '<span class="meta-nav screen-reader-text">' . __( 'Page', 'tm-vals-blog' ) . ' </span>',
 					) );
 

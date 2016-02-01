@@ -54,7 +54,12 @@
  .owl-carousel-wrapper {
   margin: 20px -40px;
   text-align: center;
+
+  .entry-content &:first-child{
+    margin-top: -22px;
+  }
  }
+
 .owl-carousel {
   display: none;
   width: 100%;
@@ -229,6 +234,7 @@
   width: 50px;
   background: rgba(#fff, 0.5);
   color: #fff;
+  text-align: center;
 
   &:hover{
     background: $primary;

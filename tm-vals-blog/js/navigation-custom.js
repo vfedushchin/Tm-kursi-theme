@@ -43,7 +43,12 @@ jQuery(document).ready(function($){
   $('.mytheme_menu_switch').click(function(event){
 
     // close all submenus except pressed
-    close_all_submenu($('.mytheme_menu_switch').not(this));
+    var body = $('body');
+    var breakpoint = 750;
+    if(body.width() >= breakpoint) {
+      close_all_submenu($('.mytheme_menu_switch').not(this));
+    }
+    
 
     event.preventDefault();
 
