@@ -165,13 +165,14 @@ add_filter('widget_archives_dropdown_args', 'change_number_archives', 10, 1);
 
 
 
-
+//start limit of quontity categories
 function widget_categories_args_filter( $cat_args ) {
 	$cat_args['show_count'] = 0;
+	$cat_args['include'] = '1,2,3,4,5';
 	return $cat_args;
 }
 
 add_filter( 'widget_categories_args', 'widget_categories_args_filter', 10, 1 );
-
+//end limit of quontity categories
 
 
