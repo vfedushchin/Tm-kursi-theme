@@ -6,17 +6,17 @@ jQuery(document).ready(function($){
 
   // var menu_ul = '.main-navigation .menu';
 
-  var menu_ul = $('.main-navigation').find('ul').first();
-  // var menu_ul = $('.main-navigation').find('ul');
+  var menu_ul_first = $('.main-navigation').find('ul').first();
+  var menu_ul = $('.main-navigation').find('ul');
 
-  
-  menu_ul.children('.page_item_has_children').children('a').append('<span class="mytheme_menu_switch">+</span>');
-  
+
+  menu_ul.children('.menu-item-has-children').children('a').append('<span class="mytheme_menu_switch">+</span>');
+
 
   // Touch friendly expanded nav
   // $(menu_ul + ' li span').click(function(event){
 
-    $('.page_item_has_children').children('a').hover(function() {
+    $('.menu-item-has-children').children('a').hover(function() {
       /* code for mouseover */
     }, function() {
      /* code for mouseout */
@@ -92,17 +92,17 @@ jQuery(document).ready(function($){
   });
 
   $('.navicon').click(function(){
-    if ( menu_ul.css('display') == 'none' ) {
+    if ( menu_ul_first.css('display') == 'none' ) {
 
-      menu_ul.addClass('show');
-      menu_ul.removeClass('closed').addClass('open');
-      menu_ul.children('.fa').removeClass('fa-navicon').addClass('fa-close');
+      menu_ul_first.addClass('show');
+      menu_ul_first.removeClass('closed').addClass('open');
+      menu_ul_first.children('.fa').removeClass('fa-navicon').addClass('fa-close');
 
     } else {
 
-      menu_ul.removeClass('show');
-      menu_ul.removeClass('open').addClass('closed');
-      menu_ul.children('.fa').removeClass('fa-close').addClass('fa-navicon');
+      menu_ul_first.removeClass('show');
+      menu_ul_first.removeClass('open').addClass('closed');
+      menu_ul_first.children('.fa').removeClass('fa-close').addClass('fa-navicon');
 
     }
 

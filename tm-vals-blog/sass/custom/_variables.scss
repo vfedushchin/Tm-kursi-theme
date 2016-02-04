@@ -30,10 +30,12 @@ $contrast: #fff;
 $white: #fff;
 $primary: #e6a665;
 
+$line-color: #e4e4e4;
+
 // Relative Colors
 $grayscale-darken: #322a37;
 $grayscale-default: #a2a0a0;
-$grayscale-lighten: lighten($default, 92.15686274509804%);
+$grayscale-lighten: #e9e9e9;
 $grayscale-lightest: lighten($default, 96.47058823529412%);
 
 $content-color: $grayscale-default;

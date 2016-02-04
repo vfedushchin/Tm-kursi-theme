@@ -1,5 +1,7 @@
 @import "custom/_variables.scss";
 
+
+/*.site-header .main-navigation ul ul ul li a {padding-left: 25px;}*/
 .main-navigation {
 	position: relative;
 	h1 {
@@ -60,6 +62,7 @@
 	}
 
 
+
 		.navicon {
 			position: absolute;
 			top: -60px;
@@ -109,17 +112,15 @@
 				margin-top: 10px;
 				left: 0;
 				width: 100%;
-				min-width: 120px;
+				min-width: 153px;
 				background-color: $grayscale-darken;
 				border: 1px solid rgba(0, 0, 0, 0.1);
-				box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+				box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 				li {
 					float: none;
 					a {
 						font-size: 12px;
 						width: 100%;
-						line-height: 4.5rem;                                  
-						padding: 0 2.1875rem;
 					}
 					a, a:link, a:visited {
 						border: 0;
@@ -128,6 +129,13 @@
 					a:hover {
 						background-color: lighten($grayscale-darken, 5%);
 					}
+				}
+
+				ul {
+					margin-top: 0;
+					background: none;
+					position: relative;
+
 				}
 			}
 		}
@@ -139,16 +147,22 @@
 /* collapsed nav menu */
 @media (max-width: $screen-sm-min - 1) {
 
+
 	.main-navigation {
 		margin-top: 20px;
 	}
 
+	.menu-all-pages-container ul {
+			clear: left;
+			display: none;
+			&.show {
+				display: block;
+		}
+	}
+
 	.main-navigation ul {
 		clear: left;
-		display: none;
-		&.show {
-			display: block;
-		}
+
 		li {
 			display: block;
 			a {
@@ -160,15 +174,15 @@
 		}
 		/* collapsed nav child menu */
 		ul {
+			font-size: 12px;
 			position: relative;
 			left: 0;
-			background: darken($grayscale-darken,2%);
+			background: darken($grayscale-darken,1%);
 			li a {
 				padding-left: 25px;
-
-				a{
-					padding-left: 35px;
-				}
+			}
+			li ul a {
+				padding-left: 45px;
 			}
 		}
 	}

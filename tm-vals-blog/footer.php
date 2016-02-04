@@ -17,7 +17,7 @@
 
     <div class="container">
 
-      <div class="row">
+      <div class="row row-xs-middle">
         <div class="col-sm-4">
           <div class="site-info">
             <a href="<?php echo esc_url( __( 'https://wordpress.org/', 'tm-vals-blog' ) ); ?>"><?php printf( esc_html__( 'Free WordPress Theme %s', 'tm-vals-blog' ), '' ); ?></a>

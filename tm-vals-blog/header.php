@@ -48,7 +48,7 @@
 				<h1 class="screen-reader-text">Main Navigation</h1>
 				<div class="navicon closed"><i class="fa fa-navicon"></i></div>
 
-				<?php wp_nav_menu( array( 'theme_location' => 'primary', 'depth' => 2 ) ); ?>
+				<?php wp_nav_menu( array( 'theme_location' => 'primary', 'depth' => 4 ) ); ?>
 				<!-- <?php 
 					$args = array(
 						'theme_location'=>'',
