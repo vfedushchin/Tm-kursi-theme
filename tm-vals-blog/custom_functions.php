@@ -43,6 +43,9 @@ add_action( 'the_content_more_link', 'add_continue_wrapper', 10, 2 );
 
 
 
+
+
+
 // function to show time in article
 function tm_vals_blog_time_created() {
 		echo '<time class="entry-date published" datetime="' . get_the_time('m-d-Y') .'"><span>' . get_the_time('D') . 

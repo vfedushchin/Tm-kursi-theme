@@ -47,8 +47,15 @@
 			<nav id="site-navigation" class="main-navigation" role="navigation">
 				<h1 class="screen-reader-text">Main Navigation</h1>
 				<div class="navicon closed"><i class="fa fa-navicon"></i></div>
-				<?php wp_nav_menu( array( 'theme_location' => 'primary', 'depth' => 2) ); ?>
 
+				<?php wp_nav_menu( array( 'theme_location' => 'primary', 'depth' => 2 ) ); ?>
+				<!-- <?php 
+					$args = array(
+						'theme_location'=>'',
+						'items_wrap' => '<ul id="%1$s" class="val-clas777 %2$s">%3$s <li>Test1</li><li>' . get_search_form( $echo ) .  '</li></ul>',
+					);
+					wp_nav_menu($args);
+				?> -->
 
 
 			</nav><!-- #site-navigation -->

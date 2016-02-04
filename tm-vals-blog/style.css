@@ -3688,14 +3688,15 @@ aside {
   border-bottom: 6px solid #322a37;
 }
 
-.widget-title, .widgettitle {
+.widget-title, .widgettitle, h3 {
+  font-weight: 500;
   position: relative;
   font-size: 22px;
   text-transform: uppercase;
   padding-bottom: 7px;
   margin-bottom: 21px;
 }
-.widget-title:after, .widgettitle:after {
+.widget-title:after, .widgettitle:after, h3:after {
   position: absolute;
   display: inline-block;
   content: '';
@@ -3803,6 +3804,13 @@ aside ul li + li {
   vertical-align: middle;
   min-width: 75px;
   color: #322a37;
+  font-size: 18px;
+  text-transform: uppercase;
+}
+.site-main article footer .article-more:after {
+  font-family: "FontAwesome";
+  content: "\f178";
+  margin-left: 5px;
 }
 .site-main article footer .article-more:hover {
   color: #e6a665;
@@ -3825,15 +3833,6 @@ aside ul li + li {
 .site-main article footer .tags-links a:hover {
   color: #fff;
   background: #000;
-}
-.site-main article footer .article-more {
-  font-size: 18px;
-  text-transform: uppercase;
-}
-.site-main article footer .article-more:after {
-  font-family: "FontAwesome";
-  content: "\f178";
-  margin-left: 5px;
 }
 .site-main article footer .edit-link {
   width: 100%;
@@ -3958,6 +3957,100 @@ aside ul li + li {
 
 * + .form-submit {
   margin-top: 12px;
+}
+
+/*
+* @section      Comments section
+* @description  This section holds styles for comments section
+*/
+.comment-list {
+  margin: 25px 0;
+}
+.comment-list li + li {
+  margin-top: 25px;
+}
+.comment-list li ol {
+  margin-top: 25px;
+}
+.comment-list .comment-body {
+  border: 1px solid #e5e5e5;
+}
+
+.comment-body .comment-author {
+  font-size: 16px;
+}
+.comment-body .comment-author .avatar {
+  float: left;
+  margin-right: 20px;
+}
+
+html .comment-form {
+  /* Firefox 19+ */
+  /* Firefox 18- */
+}
+html .comment-form p > label, html .comment-form p > label + span {
+  display: none;
+}
+html .comment-form p + p {
+  margin-top: 15px;
+}
+html .comment-form input, html .comment-form textarea {
+  max-width: 100%;
+  background: #e9e9e9;
+  color: #322a37;
+  font-weight: 300;
+  padding: 18px 25px 13px;
+  border: none;
+}
+html .comment-form ::-webkit-input-placeholder {
+  color: #322a37;
+}
+html .comment-form ::-moz-placeholder {
+  color: #322a37;
+}
+html .comment-form :-moz-placeholder {
+  color: #322a37;
+}
+html .comment-form :-ms-input-placeholder {
+  color: #322a37;
+}
+html .comment-form input {
+  width: 430px;
+}
+html .comment-form textarea {
+  height: 198px;
+}
+html .comment-form .form-submit {
+  margin-top: 29px;
+  position: relative;
+  padding-right: 20px;
+  overflow: hidden;
+  color: #322a37;
+  font-weight: 500;
+}
+html .comment-form .form-submit:after {
+  font-family: "FontAwesome";
+  content: "\f178";
+  margin-left: 5px;
+  position: absolute;
+  top: -1px;
+  right: 0;
+}
+html .comment-form .form-submit .submit {
+  padding: 0;
+  position: relative;
+  background: none;
+  float: right;
+  width: auto;
+  font-weight: 500;
+  color: #322a37;
+  font-size: 18px;
+  text-transform: uppercase;
+  box-shadow: none;
+  text-shadow: none;
+}
+html .comment-form .form-submit .submit:hover {
+  color: #e6a665;
 }
 
 /*# sourceMappingURL=style.css.map */

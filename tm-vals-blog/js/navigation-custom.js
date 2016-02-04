@@ -7,6 +7,7 @@ jQuery(document).ready(function($){
   // var menu_ul = '.main-navigation .menu';
 
   var menu_ul = $('.main-navigation').find('ul').first();
+  // var menu_ul = $('.main-navigation').find('ul');
 
   
   menu_ul.children('.page_item_has_children').children('a').append('<span class="mytheme_menu_switch">+</span>');
@@ -46,7 +47,7 @@ jQuery(document).ready(function($){
     var body = $('body');
     var breakpoint = 750;
     if(body.width() >= breakpoint) {
-      close_all_submenu($('.mytheme_menu_switch').not(this));
+      // close_all_submenu($('.mytheme_menu_switch').not(this));
     }
     
 

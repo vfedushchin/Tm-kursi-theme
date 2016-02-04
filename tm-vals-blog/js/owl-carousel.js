@@ -17,6 +17,10 @@ jQuery(document).ready(function($){
  * @description Enables Owl Carousel Plugin
  */
 ;
+
+
+
+
 (function ($) {
     var o = $('.owl-carousel');
     if (o.length) {
@@ -60,8 +64,10 @@ jQuery(document).ready(function($){
                     dots: c.attr("data-dots") === "true",
                     dotsEach: c.attr("data-dots-each") ? parseInt(c.attr("data-dots-each")) : false,
                     responsive: responsive,
+                    autoHeight : true,
                     navText: [],
                     onInitialized: function () {
+                        $(this).data('owlCarousel').updateVars();
                         if ($.fn.magnificPopup) {
                             var o = this.$element.attr('data-lightbox') !== undefined && this.$element.attr("data-lightbox") !== "gallery",
                                 g = this.$element.attr('data-lightbox') === "gallery";
