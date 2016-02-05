@@ -1,6 +1,6 @@
 <?php
 /**
- * Template part for displaying posts.
+ * Template part for displaying link posts.
  *
  * @link https://codex.wordpress.org/Template_Hierarchy
  *
@@ -9,7 +9,7 @@
 
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class('page-content-link'); ?>>
 	<header class="entry-header">
 
 		<?php 
@@ -23,9 +23,9 @@
 		<?php
 			echo '<div class="article-title-main">';
 				if ( is_single() ) {
-					the_title( '<h2 class="entry-title">', '</h2>' );
+					the_title( '<h2 class="entry-title title-linked">', '</h2>' );
 				} else {
-					the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
+					the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark" class="title-linked"">', '</a></h2>' );
 				}
 
 				tm_vals_blog_author_post();  /*custom function*/

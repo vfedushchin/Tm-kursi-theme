@@ -10,8 +10,8 @@
     $description = $image->post_content; // description of image
   ?>
     <div class="owl-item">
-      <!-- <p><?php echo $title; ?></p> -->
       <img src="<?php echo $src; ?>" alt="<?php echo $alt; ?>" />
+      <!-- <p><?php echo $title; ?></p> -->
       <!-- <p><?php echo $caption; ?></p>
       <p><?php echo $description; ?></p> -->
     </div>

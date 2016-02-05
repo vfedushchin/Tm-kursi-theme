@@ -40,12 +40,6 @@ add_action( 'the_content_more_link', 'add_continue_wrapper', 10, 2 );
 
 
 
-
-
-
-
-
-
 // function to show time in article
 function tm_vals_blog_time_created() {
 		echo '<time class="entry-date published" datetime="' . get_the_time('m-d-Y') .'"><span>' . get_the_time('D') . 
@@ -111,7 +105,9 @@ function gallery_slider($output, $attr) {
 		'include' => $ids,
 		'post_status' => 'inherit',
 		'post_type' => 'attachment',
-		'post_mime_type' => 'image'
+		'post_mime_type' => 'image',
+		'order'          => $attr['order'],
+		'orderby'        => $attr['orderby'],
 	));
 
 	// u - var_dump($images);

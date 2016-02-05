@@ -62,6 +62,32 @@
 			</div><!-- container -->
 
 
+			<!-- header image from customizer -->
+			<?php
+				$header_image  = get_header_image();
+				if ( $header_image ) { 
+			?>
+				<div class="header-image-box">
+				<?php
+					if ( is_front_page() ) {
+						$header_image  = get_header_image();
+						$header_slogan = get_option( 'photolab_header_slogan' );
+						if ( $header_image ) {
+							echo '<img src="' . $header_image . '" alt="' . get_bloginfo( 'name' ) . '">';
+						}
+						if ( $header_slogan && $header_image ) {
+							$static_class = empty( $header_image ) ? 'static' : 'absolute';
+							echo '<div class="header-slogan ' . esc_attr( $static_class ) . '">' . $header_slogan . '</div>';
+						}
+					} else {
+						do_action( 'photolab_pages_header', $header_image );
+					}
+				?>
+				</div>
+			<?php } ?>
+			<!-- end header image from customizer -->
+
+
 	</header><!-- #masthead -->
 
 	<div id="content" class="site-content">
