@@ -11,7 +11,7 @@ function enqueue_styles_scripts() {
 	wp_enqueue_script( 'owl-carousel', get_template_directory_uri() . '/js/owl-carousel.js', array('jquery') );
 
 	// for development shows screenshort of original site
-	wp_enqueue_script( 'screen-preview', get_template_directory_uri() . '/js/screen-preview.js', array('jquery') );
+	// wp_enqueue_script( 'screen-preview', get_template_directory_uri() . '/js/screen-preview.js', array('jquery') );
 
 	wp_enqueue_script( 'modernizr', get_template_directory_uri() . '/js/modernizr.js' );
 	wp_enqueue_script( 'REM-unit-polyfill', get_template_directory_uri() . '/js/rem.js', false, false, true );
@@ -98,7 +98,18 @@ function button_js() {
 /* start gallery slider */
 /* ------------------------------------- */
 function gallery_slider($output, $attr) {
-	$ids = explode(',', $attr['ids']);
+	// $ids = explode(',', $attr['ids']);
+	if (isset($attr['ids'])) {
+		$ids = $attr['ids'];
+	} else {
+		$ids = '';
+	}
+
+	if (isset($attr['orderby'])) {
+		$orderby = $attr['orderby'];
+	} else {
+		$orderby = '';
+	}
 
 
 	$images = get_posts(array(
@@ -106,8 +117,7 @@ function gallery_slider($output, $attr) {
 		'post_status' => 'inherit',
 		'post_type' => 'attachment',
 		'post_mime_type' => 'image',
-		'order'          => $attr['order'],
-		'orderby'        => $attr['orderby'],
+		'orderby'        => $orderby,
 	));
 
 	// u - var_dump($images);

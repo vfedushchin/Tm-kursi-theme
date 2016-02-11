@@ -807,8 +807,6 @@ aside {
 	margin-top: -22px;
 }
 
-
-
 /*
 * @section      Page Content
 * @description  This section holds specific style redeclarations for some
@@ -1037,6 +1035,12 @@ aside {
 	}
 }
 
+
+
+/*
+* @section      Site article
+* @description  This section holds styles for site article
+*/
 .site-main article {
 	border-bottom: 6px solid $grayscale-darken;
 
@@ -1127,6 +1131,30 @@ aside {
 	a {
 		color: $grayscale-darken;
 		&:hover {color: $primary;}
+	}
+
+	.nav-links {
+		overflow: hidden;
+
+		.nav-previous {
+			float: left;
+			&:before {
+				color: $primary;
+				font-family: "FontAwesome";
+				content: "\f104";
+				margin-right: 0.5em;
+			}
+		}
+
+		.nav-next {
+			float: right;
+			&:after {
+				color: $primary;
+				font-family: "FontAwesome";
+				content: "\f105";
+				margin-left: 0.5em;
+			}
+		}
 	}
 }
 /*
@@ -1388,6 +1416,11 @@ html .comment-form {
 }
 
 
+
+/*
+* @section      Additional classes
+* @description  This section holds Additional classes
+*/
 
 .header-image-box img {
   width: 100%;

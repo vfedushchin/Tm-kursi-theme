@@ -237,6 +237,7 @@
   background: rgba(#fff, 0.5);
   color: #fff;
   text-align: center;
+  transition: .4s all ease;
 
   &:hover{
     background: $primary;

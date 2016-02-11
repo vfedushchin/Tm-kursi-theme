@@ -60,18 +60,18 @@ if ( post_password_required() ) {
 							
 							<div class="comment-all-txt">
 								<div class="author-title">
-									<?php printf( __( '<cite class="fn">%s</cite> <span class="says">says:</span>' ), get_comment_author_link( $comment ) ); ?>
+									<?php printf( __( '<cite class="fn">%s</cite> <span class="says">says:</span>', 'tm-vals-blog' ), get_comment_author_link( $comment ) ); ?>
 								</div>
 
 			          <?php if ($comment->comment_approved == '0') : ?>
-			            <em><?php _e('Your comment is awaiting moderation.') ?></em>
+			            <em><?php _e('Your comment is awaiting moderation.', 'tm-vals-blog') ?></em>
 			            <br />
 			          <?php endif; ?>
 
 			          <?php comment_text() ?>
 			  
 			          <footer>
-			          	<div class="comment-meta commentmetadata"><a href="<?php echo htmlspecialchars( get_comment_link( $comment->comment_ID ) ) ?>"><?php printf(__('%1$s at %2$s'), get_comment_date(), get_comment_time()) ?></a><?php edit_comment_link(__('(Edit)'),'  ','') ?></div>
+			          	<div class="comment-meta commentmetadata"><a href="<?php echo htmlspecialchars( get_comment_link( $comment->comment_ID ) ) ?>"><?php printf(__('%1$s at %2$s', 'tm-vals-blog'), get_comment_date(), get_comment_time()) ?></a><?php edit_comment_link(__('(Edit)', 'tm-vals-blog'),'  ','') ?></div>
   			          <div class="reply">
   			            <?php comment_reply_link(array_merge( $args, array('depth' => $depth, 'max_depth' => $args['max_depth']))) ?>
   			          </div>
@@ -119,6 +119,10 @@ if ( post_password_required() ) {
 
 
 // Strat of input comments form
+	$commenter = wp_get_current_commenter();
+	$req = get_option( 'require_name_email' );
+	$aria_req = ( $req ? " aria-required='true'" : '' );
+
 	$fields =  array(
 		'author' =>
 			'<p class="comment-form-author"><label for="author">' . __( 'Name', 'tm-vals-blog' ) . '</label> ' .
@@ -147,7 +151,7 @@ if ( post_password_required() ) {
 		// remove "Text or HTML to be displayed after the set of comment fields"
 		'comment_notes_after' => '',
 		// redefine your own textarea (the comment body)
-		'comment_field' => '<p class="comment-form-comment"><label for="comment">' . _x( 'Comment', 'noun' ) . '</label><textarea id="comment" name="comment" aria-required="true"  placeholder="' . __( 'Comment', 'tm-vals-blog' ) . '" ></textarea></p>',
+		'comment_field' => '<p class="comment-form-comment"><label for="comment">' . _x( 'Comment', 'noun', 'tm-vals-blog' ) . '</label><textarea id="comment" name="comment" aria-required="true"  placeholder="' . __( 'Comment', 'tm-vals-blog' ) . '" ></textarea></p>',
 		'fields' => apply_filters( 'comment_form_default_fields', $fields ),
 	);
 
